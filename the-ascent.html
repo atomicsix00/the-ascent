@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ascent | Ancient Wisdom for the Modern Man</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .discipline-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .discipline-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] .chevron {
+            transform: rotate(90deg);
+        }
+        .chevron {
+            transition: transform 0.2s ease-in-out;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0; /* slate-200 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8; /* slate-400 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; /* slate-500 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="app-container" class="max-w-4xl mx-auto">
+
+        <!-- ======================= -->
+        <!--      HOME PAGE          -->
+        <!-- ======================= -->
+        <main id="home-page" class="w-full">
+            <!-- Hero Section -->
+            <section class="hero-section text-white rounded-b-3xl shadow-lg">
+                <div class="px-6 py-24 md:py-32 text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight">The Ascent</h1>
+                    <p class="mt-4 text-lg md:text-xl text-slate-200">Ancient Wisdom for the Modern Man.</p>
+                    <!-- <button onclick="navigateToDiscipline('integrity')" class="mt-8 bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                        Start This Week's Discipline
+                    </button> -->
+                </div>
+            </section>
+
+            <div class="p-4 md:p-6 space-y-8">
+                <!-- Discipline of the Week Section -->
+                <section>
+                    <!-- <h2 class="text-2xl font-bold text-slate-800 mb-4">Discipline of the Week</h2> -->
+                    <div class="bg-white rounded-2xl shadow-md p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-amber-100 p-2 rounded-lg mr-4">
+                                <i data-lucide="shield" class="text-amber-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-slate-900">The Discipline of Integrity</h3>
+                        </div>
+                        <blockquote class="border-l-4 border-slate-200 pl-4 italic text-slate-600 my-4">
+                            "Integrity characterizes the entire person, not just part of him. He is righteous and honest through and through."
+                        </blockquote>
+                        <!-- <div class="mt-4">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-sm font-medium text-slate-700">Weekly Progress</span>
+                                <span id="progress-text-integrity" class="text-sm font-medium text-amber-600">0%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2.5">
+                                <div id="progress-bar-integrity" class="bg-amber-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                        </div> -->
+                    </div>
+                </section>
+
+                <!-- Explore All Disciplines Section -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-800 mb-4">Explore All Disciplines</h2>
+                    
+
+                    <!-- Soul -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-slate-500 mb-3 uppercase tracking-wider">Soul</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div onclick="navigateToDiscipline('mind')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="brain-circuit" class="mx-auto text-purple-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Mind</p>
+                            </div>
+                            <div onclick="navigateToDiscipline('devotion')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="sunrise" class="mx-auto text-orange-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Devotion</p>
+                            </div>
+                             <div onclick="navigateToDiscipline('prayer')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="message-circle" class="mx-auto text-blue-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Prayer</p>
+                            </div>
+                            <div onclick="navigateToDiscipline('worship')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="music" class="mx-auto text-fuchsia-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Worship</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Character -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-slate-500 mb-3 uppercase tracking-wider">Character</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div onclick="navigateToDiscipline('integrity')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="shield" class="mx-auto text-amber-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Integrity</p>
+                            </div>
+                            <div onclick="navigateToDiscipline('tongue')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="mic" class="mx-auto text-red-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Tongue</p>
+                            </div>
+                             <div onclick="navigateToDiscipline('work')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="hammer" class="mx-auto text-gray-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Work</p>
+                            </div>
+                            <div onclick="navigateToDiscipline('perseverance')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="mountain" class="mx-auto text-green-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Perseverance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Relationships -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-slate-500 mb-3 uppercase tracking-wider">Relationships</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div onclick="navigateToDiscipline('purity')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="heart" class="mx-auto text-rose-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Purity</p>
+                            </div>
+                            <div onclick="navigateToDiscipline('marriage')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="gem" class="mx-auto text-indigo-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Marriage</p>
+                            </div>
+                            <div onclick="navigateToDiscipline('fatherhood')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="baby" class="mx-auto text-sky-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Fatherhood</p>
+                            </div>
+                            <div onclick="navigateToDiscipline('friendship')" class="discipline-card bg-white p-4 rounded-2xl shadow-md text-center cursor-pointer">
+                                <i data-lucide="users" class="mx-auto text-emerald-500 h-8 w-8"></i>
+                                <p class="mt-2 font-semibold text-slate-800">Friendship</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Community Snapshot Section -->
+                <section>
+                    <div class="bg-slate-800 text-white rounded-2xl p-6 text-center shadow-lg">
+                        <h3 class="text-xl font-bold">Legalism is self-centered; Discipline is God-centered</h3>
+                        <p class="mt-2 text-slate-300"><span class="font-bold text-amber-400">Be the MAN God designed you to be</span> </p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- ============================= -->
+        <!--    DISCIPLINE MODULE PAGE     -->
+        <!-- ============================= -->
+        <div id="discipline-page" class="hidden p-4 md:p-6 fade-in">
+            <header class="flex items-center mb-6">
+                <button onclick="navigateToHome()" class="p-2 rounded-full hover:bg-slate-200 mr-2">
+                    <i data-lucide="arrow-left" class="h-6 w-6 text-slate-600"></i>
+                </button>
+                <div id="discipline-header" class="flex items-center">
+                    <div id="discipline-icon-container" class="p-2 rounded-lg mr-4">
+                         <!-- Icon will be injected here -->
+                    </div>
+                    <h1 id="discipline-title" class="text-3xl font-bold text-slate-900"></h1>
+                </div>
+            </header>
+
+            <div class="space-y-6">
+                <!-- The Big Idea -->
+                <section class="bg-white rounded-2xl shadow-md p-6">
+                    <h2 class="text-xl font-semibold mb-3 text-slate-800">The Big Idea (2-Min Read)</h2>
+                    <p id="discipline-summary" class="text-slate-600 leading-relaxed"></p>
+                </section>
+
+                <!-- Key Principles -->
+                <section id="discipline-principles" class="bg-white rounded-2xl shadow-md p-6 space-y-3">
+                    <h2 class="text-xl font-semibold mb-3 text-slate-800">Key Principles</h2>
+                    <!-- Principles will be injected here -->
+                </section>
+
+                <!-- This Week's Challenge -->
+                <section class="bg-white rounded-2xl shadow-md p-6">
+                    <h2 class="text-xl font-semibold mb-4 text-slate-800">This Week's Challenge</h2>
+                    <div id="discipline-challenge" class="space-y-4">
+                       <!-- Challenges will be injected here -->
+                    </div>
+                </section>
+                
+                <!-- Resources -->
+                <section class="bg-white rounded-2xl shadow-md p-6">
+                    <h2 class="text-xl font-semibold mb-3 text-slate-800">Resources</h2>
+                    <div id="discipline-resources">
+                        <!-- Resources will be injected here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data object to hold content for each discipline, summarized from the book.
+        const disciplinesData = {
+            'purity': {
+                title: 'Discipline of Purity',
+                icon: { name: 'heart', color: 'rose' },
+                summary: "In a culture saturated with sensuality, a man's godliness is directly tied to his purity. It requires a deliberate, disciplined effort to guard one's heart and mind against both overt and subtle temptations, understanding that holiness is God's will and the foundation of spiritual power.",
+                principles: [
+                    { title: 'The Danger of "Legal" Sensualities', content: 'The greatest threat often comes from culturally acceptable indulgences—like indiscriminate TV watching or coarse humor—that desensitize the heart and make it vulnerable to greater sin. King David\'s downfall began with socially permitted sensuality.' },
+                    { title: 'The Forgetfulness of Lust', content: 'When lust takes control, God loses His reality in the moment. The longer a man stares, the less real God becomes, along with his own holy calling and the consequences of sin. Lust thrives on a forgetfulness of God.' },
+                    { title: 'The Will of God: Holiness', content: '1 Thessalonians 4:3-8 makes it clear: God\'s will is our sanctification. This includes avoiding sexual immorality and controlling our bodies in a way that is holy and honorable. To reject this is to reject God, who gives His Holy Spirit.' },
+                    { title: 'Building Protective Hedges', content: 'Practical disciplines are essential. This includes accountability with another man, memorizing Scripture, guarding your eyes (no second looks), and maintaining professional boundaries with women, such as avoiding emotional intimacy or dining alone.' }
+                ],
+                challenges: [
+                    { id: 'purity1', text: 'Identify and remove one "culturally acceptable" source of sensuality from your week (e.g., a specific TV show, social media account, etc.).' },
+                    { id: 'purity2', text: 'Memorize 1 Thessalonians 4:3-4: "It is God’s will that you should be sanctified: that you should avoid sexual immorality; that each of you should learn to control your own body in a way that is holy and honorable."' },
+                    { id: 'purity3', text: 'Establish accountability. Ask a trusted friend to check in with you this week about your commitment to purity.' }
+                ],
+                resources: "For deeper study, reflect on King David's fall in 2 Samuel 11 and Joseph's stand in Genesis 39."
+            },
+             'marriage': {
+                title: 'Discipline of Marriage',
+                icon: { name: 'gem', color: 'indigo' },
+                summary: "Christian marriage is a profound mystery reflecting Christ and the Church. A godly husband is called to a radical, disciplined love that is sacrificial, sanctifying, and mirrors the way he cares for himself, all built on the foundation of unbreakable commitment.",
+                principles: [
+                    { title: 'Sacrificial Love: A Call to Die', content: 'A husband is called to love his wife "as Christ loved the church and gave himself up for her" (Eph. 5:25). This is a call to die to self—our rights, our time, our perceived pleasures. This includes suffering with her and interceding for her in prayer.' },
+                    { title: 'Sanctifying Love: A Call to Elevate', content: 'A husband has a divine responsibility to contribute to his wife\'s holiness, "cleansing her by the washing with water through the word." Ask yourself: Is my wife more like Christ because she is married to me?' },
+                    { title: 'Self-Love: A Call to Incarnate', content: 'Because of the "one flesh" union, loving your wife is loving yourself. This requires a physical, emotional, and social incarnation—caring for her needs, understanding her disposition, and entering her world with the same energy you devote to your own.' },
+                    { title: 'The Foundation: Commitment & Fidelity', content: 'Feelings of being "in love" are insufficient. A godly marriage is built on a volitional commitment—a vow kept even when it hurts. This covenant commitment creates the security of absolute fidelity, where a wife can rest completely.' }
+                ],
+                challenges: [
+                    { id: 'marriage1', text: 'Perform one act of sacrificial love this week that costs you something (time, a preference, a comfort) for her benefit.' },
+                    { id: 'marriage2', text: 'Set aside 15 uninterrupted minutes to listen to your wife. Ask her how you can specifically pray for her, write it down, and pray for it daily.' },
+                    { id: 'marriage3', text: 'Verbally affirm your wife. Compliment her character, her work, or her beauty in a specific, heartfelt way.' }
+                ],
+                resources: "The core principles are found in Ephesians 5:25-33. Meditate on this passage throughout the week."
+            },
+            'fatherhood': {
+                title: 'Discipline of Fatherhood',
+                icon: { name: 'baby', color: 'sky' },
+                summary: "A father wields terrifying power in the lives of his children, who have an innate passion for him. The discipline of fatherhood is twofold: first, to not exasperate them, and second, to bring them up in the training and instruction of the Lord, which requires tenderness, discipline, and time.",
+                principles: [
+                    { title: 'The "Do Not": Avoid Exasperation', content: 'Fathers can "goad their children to resentment" (Eph. 6:4) through constant criticism, over-strictness, irritability, inconsistency, and favoritism. A critical spirit can break a child\'s heart.' },
+                    { title: 'The "Do": Tenderness', content: 'A godly father is tender, both verbally and physically. Children also need to see that their father is deeply in love with their mother; this provides a profound basis of stability.' },
+                    { title: 'The "Do": Discipline and Instruction', content: 'Fathers must not abdicate the role of discipline to mothers. It is a shared responsibility that provides security and self-esteem. This also involves verbal instruction, leading family devotions, and, most importantly, modeling the reality of our instruction through our own lives.' },
+                    { title: 'The Currency of Fatherhood: Time', content: 'The "do\'s" of fatherhood cannot be lived out by proxy. A father needs to be present—at bedtime, at recitals and games, and in scheduled one-on-one time. Time is the chrysalis of eternity; there is no other time but the present.' }
+                ],
+                challenges: [
+                    { id: 'fatherhood1', text: 'For one week, make it a point to give only praise and encouragement to your child. Bite your tongue on any criticism.' },
+                    { id: 'fatherhood2', text: 'Schedule and complete a 20-minute one-on-one activity with one of your children this week, giving them your undivided attention.' },
+                    { id: 'fatherhood3', text: 'Lead your family in a brief time of prayer or Scripture reading on three separate occasions this week.' }
+                ],
+                resources: "The key text is Ephesians 6:4. Reflect on its balance of negative and positive commands."
+            },
+            'friendship': {
+                title: 'Discipline of Friendship',
+                icon: { name: 'users', color: 'emerald' },
+                summary: "Deep, godly friendship is not a luxury but a necessity for spiritual growth. In an age of isolation, a godly man must intentionally cultivate friendships built on mutuality, commitment, and loyalty, understanding that these relationships are instruments of God's grace.",
+                principles: [
+                    { title: 'Mutuality of Soul', content: 'The deepest friendships, like that of David and Jonathan, are built on a shared worldview and a common devotion to God. Your souls chorus the same cries because the Holy Spirit has created a supernatural bond.' },
+                    { title: 'Commitment: The Kingmaker', content: 'True friendship involves a covenantal commitment, symbolized by Jonathan giving his royal robe to David. It is a desire to make the other person royalty, rejoicing in their elevation and achievements without jealousy or a desire to control.' },
+                    { title: 'Loyalty and Encouragement', content: 'A friend is "born for adversity" (Prov. 17:17). True loyalty means speaking well of your friend and helping them "find strength in God" when they are discouraged. This is the "Titus Touch" that comforted Paul.' },
+                    { title: 'The Work of Friendship', content: 'Friendships don\'t just happen; they require disciplined effort. This involves praying for friends, practicing friendliness, affirming others, listening well, and being hospitable. Men must resist cultural isolation and place themselves in the ways of friendship.' }
+                ],
+                challenges: [
+                    { id: 'friendship1', text: 'Identify one friend and pray specifically for them every day this week.' },
+                    { id: 'friendship2', text: 'Reach out to a friend you haven\'t connected with in a while. Send a text, make a call, or write a note of encouragement.' },
+                    { id: 'friendship3', text: 'Practice active listening. In your next significant conversation with a friend, focus entirely on what they are saying without planning your response. Ask clarifying questions.' }
+                ],
+                resources: "Read the story of David and Jonathan's friendship in 1 Samuel 18-20 for a powerful example."
+            },
+            'mind': {
+                title: 'Discipline of Mind',
+                icon: { name: 'brain-circuit', color: 'purple' },
+                summary: 'The human mind has the cosmic potential to possess "the mind of Christ." This requires a radical, disciplined choice to reject worldly programming and intentionally immerse oneself in God\'s Word and the wisdom of great Christian thinkers. You cannot be profoundly influenced by that which you do not know.',
+                principles: [
+                    { title: 'The Discipline of Refusal', content: 'A Christian mind is impossible without refusing negative input. It is impossible for any Christian who spends the bulk of his time watching secular TV and media to have a Christian mind. A biblical program cannot coexist with worldly programming. You must say "no."' },
+                    { title: 'The Divine Program: Philippians 4:8', content: 'We are commanded to deliberately and prolongedly contemplate whatever is true, noble, right, pure, lovely, admirable, excellent, or praiseworthy. This is an active, conscious choice.' },
+                    { title: 'Immersion in Scripture', content: 'You can never have a Christian mind without reading the Scriptures regularly. Systematic reading, such as completing the Bible in a year, is the best way to have your thoughts, decisions, and relationships informed and directed by God.' },
+                    { title: 'Learning from the Saints', content: 'To deny ourselves the wealth of accumulated wisdom from Christian history is to embrace spiritual anorexia. Reading great Christian literature magnifies, dramatizes, and illuminates life-giving wonders for us.' }
+                ],
+                challenges: [
+                    { id: 'mind1', text: 'Commit to a media fast. For one day this week, replace all screen time (TV, social media) with reading Scripture or a good Christian book.' },
+                    { id: 'mind2', text: 'Begin a systematic Bible reading plan. Start today, even if it\'s just one chapter.' },
+                    { id: 'mind3', text: 'Choose one of the "great books" mentioned in the book\'s survey (like Mere Christianity or The Pursuit of God) and read the first chapter.' }
+                ],
+                resources: "Use one of the book's reading plans (like M'Cheyne's Calendar) to start your journey through Scripture."
+            },
+            'devotion': {
+                title: 'Discipline of Devotion',
+                icon: { name: 'sunrise', color: 'orange' },
+                summary: 'Personal devotion is a "time exposure to God" that shapes our character and bends our will to His. It is not a rigid formula but a dynamic relationship cultivated through the disciplines of meditation, confession, adoration, and submission.',
+                principles: [
+                    { title: 'Meditation: Listening and Muttering', content: 'Meditation is not emptying the mind, but filling it with God\'s Word. It begins with praying for "dug open ears" to truly hear, and continues by "muttering" or reverently chattering over Scripture, which maximizes internalization.' },
+                    { title: 'Confession: Spontaneous and Systematic', content: 'There can be no ongoing devotion without confession. This should happen spontaneously when we sin, but also systematically as we confess what we are (sinners) and list our specific sins by name before God.' },
+                    { title: 'Adoration: Reverence and Contemplation', content: 'At the heart of devotion is worship. This involves contemplating God as seen in His creation, His attributes, and His mighty acts in Scripture. This contemplation should lead to passionate worship in prayer, song, and praise.' },
+                    { title: 'Submission: The Ultimate Act of Worship', content: 'True devotion culminates in a conscious yielding of our entire lives to God. Like Isaiah, our response to seeing God\'s glory should be, "Here am I. Send me!" This is our spiritual act of worship.' }
+                ],
+                challenges: [
+                    { id: 'devotion1', text: 'Practice meditation. Choose one verse this week, write it on a card, and "mutter" it to yourself during spare moments (e.g., while driving or waiting in line).' },
+                    { id: 'devotion2', text: 'Set aside 10 minutes for systematic confession. Write down your sins, confess them by name, and thank God for His forgiveness.' },
+                    { id: 'devotion3', text: 'Spend 5 minutes in adoration, focusing only on God\'s character. You can use a Psalm of praise (like Psalm 145) to guide you.' }
+                ],
+                resources: "Explore the appendix for lists of praise Psalms and hymns to aid in personal adoration and praise."
+            },
+            'prayer': {
+                title: 'Discipline of Prayer',
+                icon: { name: 'message-circle', color: 'blue' },
+                summary: 'Prayer is the essential work of the Christian life, a weapon in spiritual warfare. Effective petitionary prayer is in-Spirited, continual, varied, persistent, and intercessory. This requires the practical discipline of a prayer list and a committed time and place.',
+                principles: [
+                    { title: 'In-Spirited Prayer', content: 'The Holy Spirit helps our weakness, interceding for us and directing us on what to pray for. We must learn to consciously ask the Spirit to give us prayers, infusing His desires into ours.' },
+                    { title: 'Continual Prayer', content: 'This is not a constant articulation of words, but a posture of the heart—a perpetual inner dialogue with God. It is an ordering of our mental life on two levels: engaged in the world externally, but in prayer and adoration internally.' },
+                    { title: 'Persistent Prayer', content: 'God sovereignly chooses to encourage and answer persistent prayer. Jesus taught us to "keep on asking... keep on seeking... keep on knocking." We must not grow weary and lose heart.' },
+                    { title: 'The Prayer List', content: 'A prayer list is essential for taming a wandering mind and ensuring we do not neglect important requests. It turns empty promises of "I\'ll pray for you" into faithful intercession.' }
+                ],
+                challenges: [
+                    { id: 'prayer1', text: 'Create a simple prayer list. On a 3x5 card, write down your family members and one or two other key needs. Use it daily.' },
+                    { id: 'prayer2', text: 'Practice continual prayer. Choose one recurring activity today (e.g., walking to your car, washing hands) and use it as a trigger to speak with God.' },
+                    { id: 'prayer3', text: 'Engage in persistent prayer. Choose one long-term concern and commit to praying for it every day this week without fail.' }
+                ],
+                resources: "The model for prayer is found in the Lord's Prayer (Matthew 6:9-13). Use its structure to guide your own petitions."
+            },
+             'worship': {
+                title: 'Discipline of Worship',
+                icon: { name: 'music', color: 'fuchsia' },
+                summary: 'Corporate worship is not for us; it is for God. It is the Church\'s highest priority. To worship "in spirit and in truth" is disciplined work, requiring preparation of the heart, expectant participation, and an understanding that we are meeting with the living Christ.',
+                principles: [
+                    { title: 'The Focus: God-Centered', content: 'The primary question after a service is not "What did I get out of it?" but "What did God think of it?" Worship must be orchestrated with the vision of an awesome, holy God who is to be glorified.' },
+                    { title: 'Preparation for Worship', content: 'Worship doesn\'t just "happen." It begins on Saturday night—preparing clothes, getting to bed early, and praying for the service. This preparation turns Sunday morning chaos into focused expectation.' },
+                    { title: 'Worship "In Truth"', content: 'This means coming informed by the objective revelation of God\'s Word. The more we know of God\'s character and precepts, the better we are equipped to worship Him authentically.' },
+                    { title: 'Worship "In Spirit"', content: 'True worship flows from the inside out. It must spring from the spontaneous affections of the heart. We must work at engaging our minds and spirits in every element of the service, from the prelude to the sermon.' }
+                ],
+                challenges: [
+                    { id: 'worship1', text: 'This Saturday, take 10 minutes to prepare for Sunday. Lay out your clothes, read the sermon text if available, and pray for your pastor.' },
+                    { id: 'worship2', text: 'During the next worship service, actively work at listening. Take notes on the sermon, identifying the main theme and application points.' },
+                    { id: 'worship3', text: 'During congregational singing, consciously direct your words to God as your audience. Sing with both your spirit and your mind.' }
+                ],
+                resources: "Read Hebrews 12:22-24 to grasp the magnificent reality of what happens when the Church gathers for worship."
+            },
+            'integrity': {
+                title: 'Discipline of Integrity',
+                icon: { name: 'shield', color: 'amber' },
+                summary: 'Biblical integrity means wholeness—a person who is complete and consistent, inside and out. In a culture of deceit, a man of God must be disciplined in truthfulness, keeping his word even when it hurts, and living as a man of principle to the glory of God.',
+                principles: [
+                    { title: 'Truth from the Heart', content: 'A man of integrity "speaks the truth from his heart" (Psalm 15). This means not only avoiding lies, but also refusing to deceive by omission or using unclear talk to save face. All speech must be intentionally true.' },
+                    { title: 'Keeping Your Oath', content: 'The man of integrity "keeps his oath even when it hurts." He follows through on his promises and does not conveniently "forget" his commitments. His word is his bond.' },
+                    { title: 'Honesty in All Dealings', content: 'Integrity avoids all forms of theft, both overt and subtle. This includes pilfering office supplies, stealing time, exaggerating a product, or falsifying records. The Lord "detests dishonest scales."' },
+                    { title: 'The Power of Habit', content: 'Deception can become a habit, but so can truth. We must discipline ourselves in the "small things" so that the "big things" will take care of themselves. Every stroke of virtue or vice leaves its scar.' }
+                ],
+                challenges: [
+                    { id: 'integrity1', text: 'For one day, practice radical honesty. Pay attention to every word and ensure it is completely truthful, avoiding even "small" exaggerations.' },
+                    { id: 'integrity2', text: 'Review your recent commitments. Is there a promise you made that you have not kept? Fulfill it this week.' },
+                    { id: 'integrity3', text: 'Conduct an "integrity audit" of your work. Are you giving your employer a full day\'s work for a full day\'s pay? Adjust accordingly.' }
+                ],
+                resources: 'Meditate on Psalm 15, which provides a complete portrait of the person who lives with integrity before God.'
+            },
+            'tongue': {
+                title: 'Discipline of the Tongue',
+                icon: { name: 'mic', color: 'red' },
+                summary: "The tongue, though small, is a mighty force with immense power for destruction or good. It is a 'world of evil' set on fire by hell, or a tool of heaven. A man's true religion is proven not by his eloquence, but by his ability to bridle his tongue.",
+                principles: [
+                    { title: 'The Power of a Spark', content: 'Like a small spark that sets a great forest on fire, a single ill-spoken word can ignite a firestorm in relationships. An uncontrolled tongue corrupts the whole person.' },
+                    { title: 'Verbal Cyanide', content: 'The tongue’s venom is dispensed through gossip, innuendo, flattery (saying to someone’s face what you wouldn’t say behind their back), and criticism. These are tools of hell that "swill souls."' },
+                    { title: 'The Test of True Religion', content: 'James 1:26 states that if a man does not keep a tight rein on his tongue, his religion is worthless. The tongue inevitably reveals what is in the heart.' },
+                    { title: 'A Disciplined Resolve', content: 'A godly man must resolve to speak truth in love, refrain from gossip and flattery, avoid degrading humor and sarcasm, and refuse to run others down. This requires prayer and a conscious commitment.' }
+                ],
+                challenges: [
+                    { id: 'tongue1', text: 'For one day, refuse to participate in any gossip. If a conversation turns negative about someone who isn\'t present, either change the subject or walk away.' },
+                    { id: 'tongue2', text: 'Memorize Proverbs 15:1: "A gentle answer turns away wrath, but a harsh word stirs up anger." Use it before responding in a tense situation.' },
+                    { id: 'tongue3', text: 'Instead of criticism, offer a word of healing. Find an opportunity to build someone up with a sincere, encouraging word.' }
+                ],
+                resources: 'The appendix "Selected Proverbs Regarding the Tongue" offers a rich resource for study and memorization.'
+            },
+            'work': {
+                title: 'Discipline of Work',
+                icon: { name: 'hammer', color: 'gray' },
+                summary: 'Work is not a curse, but a sacred calling rooted in the nature of God Himself. A godly man redeems his work from meaninglessness by doing it with energy, enthusiasm, wholeheartedness, and excellence, not for men, but "as working for the Lord."',
+                principles: [
+                    { title: 'Work Is Dignified', content: 'God is a worker (Genesis 1), and He created man in His image to work. This endows all legitimate work with intrinsic dignity. There is no secular/sacred distinction; all honest work done for God is sacred.' },
+                    { title: 'Work Is Redeemed', content: 'We are "God\'s workmanship, created in Christ Jesus to do good works." Even in a job that involves painful toil, we can glorify God through our attitude and effort, transforming it into an act of worship.' },
+                    { title: 'The Call to Energy', content: 'Scripture consistently associates godliness with hard work and condemns laziness. A man who does not provide for his family "is worse than an unbeliever" (1 Tim. 5:8). No one has ever been both faithful to God and lazy.' },
+                    { title: 'Wholehearted Excellence', content: 'We are to work "with all your heart" and not just "when their eye is on you." Christians ought to be the best workers wherever they are, known for their attitude, integrity, and dependability.' }
+                ],
+                challenges: [
+                    { id: 'work1', text: 'For one day, consciously offer every task you do at work to God as an act of worship.' },
+                    { id: 'work2', text: 'Identify one area where you have been slacking at work. Give it your best effort for the entire week.' },
+                    { id: 'work3', text: 'Verbally thank a coworker for their help or contribution, showing enthusiasm for the team\'s effort.' }
+                ],
+                resources: 'Read Colossians 3:23-24 and reflect on what it means to be "serving the Lord Christ" in your job.'
+            },
+            'perseverance': {
+                title: 'Discipline of Perseverance',
+                icon: { name: 'mountain', color: 'green' },
+                summary: 'The Christian life is a long-distance race, not a sprint. To finish well requires the discipline of perseverance. This means divesting ourselves of sin, running the unique race God has marked for us, and keeping our eyes fixed firmly on Jesus.',
+                principles: [
+                    { title: 'Divest!', content: 'We must "throw off everything that hinders and the sin that so easily entangles." This includes both our unique "besetting sins" and even good things that hold us back. We must be ruthless in stripping them away.' },
+                    { title: 'Run!', content: 'We are to run with patient fortitude—"gutting it out." Each of us has a specific race marked out by God. Your race is not mine, but you can finish yours if you persevere. It is a race for faithful plodders.' },
+                    { title: 'Focus!', content: 'We must "fix our eyes on Jesus." Any lapse in concentration is fatal. We are to focus on Him as the pioneer and perfecter of our faith, and also on His focus—the joy set before Him—which is also our joy.' },
+                    { title: 'Consider!', content: 'To avoid growing weary and losing heart, we are to "consider him who endured such opposition from sinful men." Our life is to be spent considering how He lived, how He ran, and how He finished.' }
+                ],
+                challenges: [
+                    { id: 'perseverance1', text: 'Identify one "besetting sin" or "hindrance" in your life. Write it down and pray for the strength to throw it off this week.' },
+                    { id: 'perseverance2', text: 'When you face a difficult challenge this week, consciously "fix your eyes on Jesus." Take 60 seconds to consider His example of endurance.' },
+                    { id: 'perseverance3', text: 'Encourage someone else who is struggling. Send a text or make a call to help another runner persevere in their race.' }
+                ],
+                resources: 'Hebrews 12:1-3 is the key text for this discipline. Read it every morning this week.'
+            },
+            // Add other disciplines here as needed
+        };
+
+
+        // ======================== //
+        //      APP LOGIC         //
+        // ======================== //
+        const homePage = document.getElementById('home-page');
+        const disciplinePage = document.getElementById('discipline-page');
+        let currentDiscipline = 'integrity'; // Default discipline of the week
+
+        // --- Navigation ---
+        function navigateToDiscipline(disciplineKey) {
+            currentDiscipline = disciplineKey;
+            const data = disciplinesData[disciplineKey];
+            if (!data) return;
+
+            // Populate page content
+            document.getElementById('discipline-title').textContent = data.title;
+            
+            const iconContainer = document.getElementById('discipline-icon-container');
+            const iconColorClasses = {
+                rose: 'bg-rose-100 text-rose-600',
+                indigo: 'bg-indigo-100 text-indigo-600',
+                sky: 'bg-sky-100 text-sky-600',
+                emerald: 'bg-emerald-100 text-emerald-600',
+                purple: 'bg-purple-100 text-purple-600',
+                orange: 'bg-orange-100 text-orange-600',
+                blue: 'bg-blue-100 text-blue-600',
+                fuchsia: 'bg-fuchsia-100 text-fuchsia-600',
+                amber: 'bg-amber-100 text-amber-600',
+                red: 'bg-red-100 text-red-600',
+                gray: 'bg-gray-100 text-gray-600',
+                green: 'bg-green-100 text-green-600',
+            };
+            iconContainer.className = `p-2 rounded-lg mr-4 ${iconColorClasses[data.icon.color] || 'bg-slate-100 text-slate-600'}`;
+            iconContainer.innerHTML = `<i data-lucide="${data.icon.name}" class="h-8 w-8"></i>`;
+
+            document.getElementById('discipline-summary').textContent = data.summary;
+
+            const principlesContainer = document.getElementById('discipline-principles');
+            principlesContainer.innerHTML = '<h2 class="text-xl font-semibold mb-3 text-slate-800">Key Principles</h2>'; // Reset
+            data.principles.forEach(p => {
+                const principleEl = document.createElement('details');
+                principleEl.className = 'border-b border-slate-200 pb-3';
+                principleEl.innerHTML = `
+                    <summary class="flex justify-between items-center cursor-pointer py-1">
+                        <span class="font-semibold text-slate-800">${p.title}</span>
+                        <i data-lucide="chevron-right" class="chevron text-slate-400 h-5 w-5"></i>
+                    </summary>
+                    <p class="mt-2 text-slate-600 leading-relaxed">${p.content}</p>
+                `;
+                principlesContainer.appendChild(principleEl);
+            });
+
+            const challengeContainer = document.getElementById('discipline-challenge');
+            challengeContainer.innerHTML = ''; // Reset
+            data.challenges.forEach(c => {
+                const challengeEl = document.createElement('div');
+                challengeEl.className = 'flex items-start';
+                challengeEl.innerHTML = `
+                    <input id="${c.id}" type="checkbox" onchange="updateProgress('${disciplineKey}')" class="h-5 w-5 rounded border-slate-300 text-amber-600 focus:ring-amber-500 mt-0.5 mr-3 shrink-0">
+                    <label for="${c.id}" class="text-slate-700">${c.text}</label>
+                `;
+                challengeContainer.appendChild(challengeEl);
+            });
+
+            const resourcesContainer = document.getElementById('discipline-resources');
+            resourcesContainer.innerHTML = `<p class="text-slate-600">${data.resources}</p>`;
+            
+            // Switch views
+            homePage.classList.add('hidden');
+            disciplinePage.classList.remove('hidden');
+            
+            lucide.createIcons(); // Re-render icons
+            loadProgress(disciplineKey);
+            window.scrollTo(0, 0);
+        }
+
+        function navigateToHome() {
+            disciplinePage.classList.add('hidden');
+            homePage.classList.remove('hidden');
+        }
+
+        // --- Progress Tracking ---
+        function updateProgress(disciplineKey) {
+            const data = disciplinesData[disciplineKey];
+            const challenges = data.challenges;
+            let completedCount = 0;
+            
+            let progressState = {};
+
+            challenges.forEach(c => {
+                const checkbox = document.getElementById(c.id);
+                if (checkbox.checked) {
+                    completedCount++;
+                }
+                progressState[c.id] = checkbox.checked;
+            });
+
+            const percentage = Math.round((completedCount / challenges.length) * 100);
+            
+            // Update the module page if we're on it
+            // No specific progress bar on the module page, but could add one.
+            
+            // Update the homepage progress bar
+            const progressBar = document.getElementById(`progress-bar-${disciplineKey}`);
+            const progressText = document.getElementById(`progress-text-${disciplineKey}`);
+            
+            if (progressBar && progressText) {
+                progressBar.style.width = `${percentage}%`;
+                progressText.textContent = `${percentage}%`;
+            }
+
+            // Save state to sessionStorage
+            sessionStorage.setItem(`progress-${disciplineKey}`, JSON.stringify(progressState));
+        }
+
+        function loadProgress(disciplineKey) {
+            const savedState = JSON.parse(sessionStorage.getItem(`progress-${disciplineKey}`));
+            if (!savedState) {
+                 updateProgress(disciplineKey); // Initialize to 0%
+                 return;
+            }
+            
+            const challenges = disciplinesData[disciplineKey].challenges;
+            challenges.forEach(c => {
+                const checkbox = document.getElementById(c.id);
+                if (checkbox) {
+                    checkbox.checked = savedState[c.id] || false;
+                }
+            });
+            
+            updateProgress(disciplineKey);
+        }
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            // Load progress for the "Discipline of the Week" on the homepage
+            loadProgress('integrity'); 
+        });
+
+    </script>
+
+</body>
+</html>
